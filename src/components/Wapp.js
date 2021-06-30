@@ -32,13 +32,14 @@ const Wapp = () => {
              
                 </div>
 
-           
+    {search ? (
+        <>     
             
     {!city ? (
         <p className ="errorMsg" > Opps!No Data Found </p>
     )   : (
         <div>
-       {search ? ( <div className = "info">
+        <div className = "info">
             <h2 className = "location" >
             <i className="fas fa-street-view"> </i>{search}
             </h2>
@@ -47,22 +48,19 @@ const Wapp = () => {
             </h1>
             <h3 className="tempmin_max">Min : {city.temp_min}°Cel | {city.temp_max}°Cel </h3>
 
-        </div>):"Please enter the Name of City"
-        }
-            <div className = "wave">
-                <div className = "wave-one"></div>
-                </div>
-            </div>
-
-    )
-    }    
-        
-               
-            </div>
-        
-        </>
-    )
-}        
-        
+        </div>
+        <div className='wave'>
+									<div className='wave-one'></div>
+								</div>
+							</div>
+						)}{" "}
+					</>
+				) : (
+					<p className='errorMsg'> Type City to check Weather </p>
+				)}
+			</div>
+		</>
+	);
+};
         
 export default Wapp;
